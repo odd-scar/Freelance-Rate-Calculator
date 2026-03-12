@@ -1,4 +1,5 @@
 ﻿User-agent: *
 Allow: /
 
-Sitemap: https://example.com/sitemap.xml
+Sitemap: https://odd-scar.github.io/Freelance-Rate-Calculator/sitemap.xml
+
