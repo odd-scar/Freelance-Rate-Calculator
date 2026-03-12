@@ -230,9 +230,19 @@
             <div class="project-box">
               <div>
                 <h3>Project quote builder</h3>
-                <p>Add a rough project size to turn your rate into a fixed-fee quote.</p>
+                <p>Add a few presentation details so the draft looks closer to something you could send.</p>
               </div>
               <div class="field-grid compact">
+                <label>
+                  Business name
+                  <input id="businessName" name="businessName" type="text" maxlength="60" value="SoloRate Studio">
+                  <small>This appears at the top of the client-ready quote draft.</small>
+                </label>
+                <label>
+                  Project name
+                  <input id="projectName" name="projectName" type="text" maxlength="80" value="Website project quote">
+                  <small>Use a clear label like Brand Photoshoot, Website Refresh, or Logo Package.</small>
+                </label>
                 <label>
                   Estimated project hours
                   <input id="projectHours" name="projectHours" type="number" min="1" max="500" step="1" value="8">
@@ -286,7 +296,42 @@
                 <h3>Client-ready quote draft</h3>
                 <span id="copy-status" aria-live="polite"></span>
               </div>
-              <textarea id="quoteSummary" readonly></textarea>
+              <article class="quote-preview" id="quotePreview">
+                <div class="quote-preview-head">
+                  <div>
+                    <p class="quote-kicker">Prepared by</p>
+                    <h4 id="previewBusinessName">SoloRate Studio</h4>
+                  </div>
+                  <div class="quote-meta">
+                    <span id="previewDate"></span>
+                    <strong id="previewInvestment">$0</strong>
+                  </div>
+                </div>
+                <div class="quote-title-row">
+                  <div>
+                    <p class="quote-kicker">Project</p>
+                    <h5 id="previewProjectName">Website project quote</h5>
+                  </div>
+                  <div>
+                    <p class="quote-kicker">Timeline</p>
+                    <p id="previewTimeline">Standard timeline</p>
+                  </div>
+                </div>
+                <div class="quote-grid">
+                  <div>
+                    <p class="quote-kicker">Estimated scope</p>
+                    <p id="previewScope">Approximately 8 hours of work</p>
+                  </div>
+                  <div>
+                    <p class="quote-kicker">Includes</p>
+                    <p id="previewIncludes">Planning, execution, and 1 round of revisions</p>
+                  </div>
+                </div>
+                <div class="quote-message">
+                  <p id="previewBody">This quote is based on the current project scope. If deliverables expand, the final quote can be adjusted before work begins.</p>
+                </div>
+              </article>
+              <textarea id="quoteSummary" readonly class="visually-hidden"></textarea>
             </div>
           </aside>
         </div>
@@ -424,5 +469,6 @@
   <script src="script.js"></script>
 </body>
 </html>
+
 
 

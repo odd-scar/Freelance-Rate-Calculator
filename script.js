@@ -4,6 +4,12 @@
   maximumFractionDigits: 0
 });
 
+const dateFormatter = new Intl.DateTimeFormat("en-US", {
+  month: "short",
+  day: "numeric",
+  year: "numeric"
+});
+
 const calculatorForm = document.querySelector("#calculator-form");
 const leadForm = document.querySelector("#lead-form");
 const copyButton = document.querySelector("#copy-summary");
@@ -11,6 +17,7 @@ const copyStatus = document.querySelector("#copy-status");
 const advancedToggle = document.querySelector("#advancedMode");
 const advancedFields = document.querySelector("#advancedFields");
 const presetButtons = document.querySelectorAll("[data-preset]");
+let currentQuoteText = "";
 
 const presets = {
   beginner: {
@@ -22,7 +29,9 @@ const presets = {
     profitMargin: 10,
     projectHours: 8,
     rushMultiplier: 1,
-    advancedMode: false
+    advancedMode: false,
+    businessName: "SoloRate Studio",
+    projectName: "Website project quote"
   },
   creative: {
     income: 65000,
@@ -33,7 +42,9 @@ const presets = {
     profitMargin: 12,
     projectHours: 16,
     rushMultiplier: 1,
-    advancedMode: false
+    advancedMode: false,
+    businessName: "Northlight Creative",
+    projectName: "Brand photography package"
   },
   consultant: {
     income: 110000,
@@ -44,7 +55,9 @@ const presets = {
     profitMargin: 18,
     projectHours: 24,
     rushMultiplier: 1.15,
-    advancedMode: true
+    advancedMode: true,
+    businessName: "Summit Advisory",
+    projectName: "Consulting engagement"
   },
   advanced: {
     income: 90000,
@@ -55,7 +68,9 @@ const presets = {
     profitMargin: 15,
     projectHours: 18,
     rushMultiplier: 1,
-    advancedMode: true
+    advancedMode: true,
+    businessName: "Your Business Name",
+    projectName: "Client project quote"
   }
 };
 
@@ -80,18 +95,18 @@ function setActivePreset(presetName) {
 
 function getTimelineLabel(multiplier) {
   if (multiplier >= 1.5) {
-    return "urgent delivery";
+    return "Urgent delivery";
   }
 
   if (multiplier >= 1.3) {
-    return "fast turnaround";
+    return "Fast turnaround";
   }
 
   if (multiplier > 1) {
-    return "accelerated timeline";
+    return "Accelerated timeline";
   }
 
-  return "standard timeline";
+  return "Standard timeline";
 }
 
 function applyPreset(presetName) {
@@ -108,6 +123,8 @@ function applyPreset(presetName) {
   byId("profitMargin").value = preset.profitMargin;
   byId("projectHours").value = preset.projectHours;
   byId("rushMultiplier").value = String(preset.rushMultiplier);
+  byId("businessName").value = preset.businessName;
+  byId("projectName").value = preset.projectName;
   setAdvancedMode(preset.advancedMode);
   setActivePreset(presetName);
   calculateRates();
@@ -120,6 +137,8 @@ function calculateRates() {
   const weeksPerYear = Number(byId("weeksPerYear").value) || 1;
   const projectHours = Number(byId("projectHours").value) || 1;
   const rushMultiplier = Number(byId("rushMultiplier").value) || 1;
+  const businessName = byId("businessName").value.trim() || "Your Business Name";
+  const projectName = byId("projectName").value.trim() || "Client project quote";
 
   const usingAdvanced = advancedToggle.checked;
   const taxRate = usingAdvanced ? (Number(byId("taxRate").value) || 0) / 100 : 0.25;
@@ -136,6 +155,10 @@ function calculateRates() {
   const modeLabel = usingAdvanced ? "advanced" : "guided";
   const timelineLabel = getTimelineLabel(rushMultiplier);
   const revisionRounds = projectHours >= 20 ? "up to 2 rounds of revisions" : "1 round of revisions";
+  const quoteDate = dateFormatter.format(new Date());
+  const scopeText = `Approximately ${projectHours} hours of work`;
+  const includesText = `Planning, execution, and ${revisionRounds}`;
+  const bodyText = "This quote is based on the current scope and timeline discussed. If deliverables expand, the final quote can be adjusted before work begins.";
 
   byId("hourlyRate").textContent = formatMoney(hourlyRate);
   byId("monthlyTarget").textContent = formatMoney(monthlyTarget);
@@ -145,13 +168,26 @@ function calculateRates() {
   byId("rateContext").textContent =
     `Using ${modeLabel} mode, this assumes ${annualHours.toLocaleString("en-US")} billable hours a year, a ${Math.round(taxRate * 100)}% tax set-aside, and a ${Math.round(profitMargin * 100)}% safety margin.`;
 
-  byId("quoteSummary").value =
-    `Project Quote\n\n` +
+  byId("previewBusinessName").textContent = businessName;
+  byId("previewDate").textContent = quoteDate;
+  byId("previewInvestment").textContent = formatMoney(projectQuote);
+  byId("previewProjectName").textContent = projectName;
+  byId("previewTimeline").textContent = timelineLabel;
+  byId("previewScope").textContent = scopeText;
+  byId("previewIncludes").textContent = includesText;
+  byId("previewBody").textContent = bodyText;
+
+  currentQuoteText =
+    `${businessName}\n` +
+    `${projectName}\n` +
+    `Prepared ${quoteDate}\n\n` +
     `Estimated investment: ${formatMoney(projectQuote)}\n` +
     `Timeline: ${timelineLabel}\n` +
-    `Estimated scope: approximately ${projectHours} hours of work\n\n` +
-    `This quote is based on the current project scope and includes planning, execution, and ${revisionRounds}.\n\n` +
-    `If the scope or deliverables expand, the final quote can be adjusted before work begins.`;
+    `Estimated scope: ${scopeText}\n` +
+    `Includes: ${includesText}\n\n` +
+    `${bodyText}`;
+
+  byId("quoteSummary").value = currentQuoteText;
 }
 
 calculatorForm.addEventListener("submit", (event) => {
@@ -178,7 +214,7 @@ copyButton.addEventListener("click", async () => {
   calculateRates();
 
   try {
-    await navigator.clipboard.writeText(byId("quoteSummary").value);
+    await navigator.clipboard.writeText(currentQuoteText);
     copyStatus.textContent = "Copied.";
   } catch (error) {
     copyStatus.textContent = "Copy failed. Select the text manually.";
