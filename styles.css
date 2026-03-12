@@ -625,7 +625,7 @@ label small {
 .demo-screen {
   position: relative;
   overflow: hidden;
-  min-height: 250px;
+  min-height: 320px;
   padding: 18px;
   border-radius: 22px;
   background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(247,239,228,0.88));
@@ -701,7 +701,7 @@ label small {
 }
 
 .step-four {
-  top: 184px;
+  top: 178px;
   animation-delay: 12s;
 }
 
@@ -767,4 +767,6 @@ label small {
     grid-template-columns: 1fr;
   }
 }
+
+
 
