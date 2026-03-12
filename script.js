@@ -78,6 +78,22 @@ function setActivePreset(presetName) {
   });
 }
 
+function getTimelineLabel(multiplier) {
+  if (multiplier >= 1.5) {
+    return "urgent delivery";
+  }
+
+  if (multiplier >= 1.3) {
+    return "fast turnaround";
+  }
+
+  if (multiplier > 1) {
+    return "accelerated timeline";
+  }
+
+  return "standard timeline";
+}
+
 function applyPreset(presetName) {
   const preset = presets[presetName];
   if (!preset) {
@@ -118,6 +134,8 @@ function calculateRates() {
   const monthlyTarget = targetRevenue / 12;
   const projectQuote = hourlyRate * projectHours * rushMultiplier;
   const modeLabel = usingAdvanced ? "advanced" : "guided";
+  const timelineLabel = getTimelineLabel(rushMultiplier);
+  const revisionRounds = projectHours >= 20 ? "up to 2 rounds of revisions" : "1 round of revisions";
 
   byId("hourlyRate").textContent = formatMoney(hourlyRate);
   byId("monthlyTarget").textContent = formatMoney(monthlyTarget);
@@ -128,16 +146,12 @@ function calculateRates() {
     `Using ${modeLabel} mode, this assumes ${annualHours.toLocaleString("en-US")} billable hours a year, a ${Math.round(taxRate * 100)}% tax set-aside, and a ${Math.round(profitMargin * 100)}% safety margin.`;
 
   byId("quoteSummary").value =
-    `Recommended freelance rate: ${formatMoney(hourlyRate)} per hour.\n` +
-    `Suggested fixed-fee quote: ${formatMoney(projectQuote)} for approximately ${projectHours} hours of work.\n\n` +
-    `Pricing rationale:\n` +
-    `- Target yearly income: ${formatMoney(income)}\n` +
-    `- Yearly business costs: ${formatMoney(overhead)}\n` +
-    `- Money set aside for taxes: ${Math.round(taxRate * 100)}%\n` +
-    `- Extra safety margin: ${Math.round(profitMargin * 100)}%\n` +
-    `- Billable availability: ${hoursPerWeek} hours/week for ${weeksPerYear} weeks/year\n` +
-    `- Timeline adjustment: x${rushMultiplier.toFixed(2)}\n\n` +
-    `You can position this as a fixed-fee investment tied to scope, outcomes, and delivery timeline rather than only hours.`;
+    `Project Quote\n\n` +
+    `Estimated investment: ${formatMoney(projectQuote)}\n` +
+    `Timeline: ${timelineLabel}\n` +
+    `Estimated scope: approximately ${projectHours} hours of work\n\n` +
+    `This quote is based on the current project scope and includes planning, execution, and ${revisionRounds}.\n\n` +
+    `If the scope or deliverables expand, the final quote can be adjusted before work begins.`;
 }
 
 calculatorForm.addEventListener("submit", (event) => {
