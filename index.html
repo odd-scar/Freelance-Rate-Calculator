@@ -239,6 +239,11 @@
                   <small>This appears at the top of the client-ready quote draft.</small>
                 </label>
                 <label>
+                  Client name
+                  <input id="clientName" name="clientName" type="text" maxlength="60" value="Client Name">
+                  <small>Add the client or company receiving the quote.</small>
+                </label>
+                <label>
                   Project name
                   <input id="projectName" name="projectName" type="text" maxlength="80" value="Website project quote">
                   <small>Use a clear label like Brand Photoshoot, Website Refresh, or Logo Package.</small>
@@ -264,6 +269,7 @@
             <div class="form-actions">
               <button class="button button-primary" type="submit">Calculate my rate</button>
               <button class="button button-secondary" id="copy-summary" type="button">Copy client quote</button>
+              <button class="button button-secondary" id="export-pdf" type="button">Open PDF layout</button>
             </div>
           </form>
 
@@ -308,6 +314,10 @@
                   </div>
                 </div>
                 <div class="quote-title-row">
+                  <div>
+                    <p class="quote-kicker">Prepared for</p>
+                    <p id="previewClientName">Client Name</p>
+                  </div>
                   <div>
                     <p class="quote-kicker">Project</p>
                     <h5 id="previewProjectName">Website project quote</h5>
@@ -469,6 +479,7 @@
   <script src="script.js"></script>
 </body>
 </html>
+
 
 
 

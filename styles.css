@@ -879,3 +879,12 @@ label small {
     text-align: left;
   }
 }
+#previewClientName {
+  color: var(--muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.form-actions {
+  align-items: center;
+}
