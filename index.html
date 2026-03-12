@@ -1,0 +1,349 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SoloRate | Freelance Rate Calculator and Quote Builder</title>
+  <meta
+    name="description"
+    content="Help freelancers price confidently with a free rate calculator, project quote builder, and curated tools for invoicing, banking, and bookkeeping."
+  >
+  <meta name="theme-color" content="#f6efe5">
+  <meta property="og:title" content="SoloRate | Freelance Rate Calculator and Quote Builder">
+  <meta
+    property="og:description"
+    content="A conversion-focused website for freelancers to calculate rates, build quotes, and discover tools that help them get paid faster."
+  >
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Source+Serif+4:wght@600;700&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "SoloRate",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Any",
+      "description": "Freelance rate calculator, quote builder, and monetized content hub for solo business owners.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+  </script>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="SoloRate home">
+        <span class="brand-mark">$</span>
+        <span class="brand-text">SoloRate</span>
+      </a>
+      <nav class="top-nav" aria-label="Primary">
+        <a href="#calculator">Calculator</a>
+        <a href="#how-it-works">How it works</a>
+        <a href="#stack">Tool stack</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <a class="button button-ghost" href="#lead">Get the pricing sheet</a>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Built to rank. Built to convert. Built for solo businesses.</p>
+          <h1>Price your freelance work without guessing.</h1>
+          <p class="hero-text">
+            SoloRate turns income goals into an hourly rate, transforms discovery notes into a project quote,
+            and gives you affiliate-ready recommendations for invoicing, bookkeeping, and business banking.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#calculator">Use the free calculator</a>
+            <a class="button button-secondary" href="#stack">See recommended tools</a>
+          </div>
+          <ul class="hero-points" aria-label="Highlights">
+            <li>Free pricing calculator for freelancers and agencies of one</li>
+            <li>Quote summary generator you can paste into client proposals</li>
+            <li>Monetization built around affiliate offers and lead capture</li>
+          </ul>
+        </div>
+        <aside class="hero-card">
+          <p class="mini-label">What this site sells</p>
+          <h2>Trust first, revenue second.</h2>
+          <p>
+            The core product is a genuinely useful calculator. Revenue comes from high-intent traffic clicking into
+            tools they already need after they finish pricing their work.
+          </p>
+          <div class="metric-grid">
+            <article>
+              <strong>1</strong>
+              <span>Core calculator</span>
+            </article>
+            <article>
+              <strong>3</strong>
+              <span>Affiliate slots</span>
+            </article>
+            <article>
+              <strong>&infin;</strong>
+              <span>SEO article potential</span>
+            </article>
+          </div>
+        </aside>
+      </section>
+
+      <section class="proof-strip" aria-label="Opportunity signals">
+        <article>
+          <span class="proof-number">28.5M</span>
+          <span class="proof-label">U.S. nonemployer businesses in 2021</span>
+        </article>
+        <article>
+          <span class="proof-number">$1.5T</span>
+          <span class="proof-label">2024 skilled freelancer earnings estimate</span>
+        </article>
+        <article>
+          <span class="proof-number">120 days</span>
+          <span class="proof-label">FreshBooks affiliate cookie window</span>
+        </article>
+      </section>
+
+      <section class="calculator-section" id="calculator">
+        <div class="section-heading">
+          <p class="eyebrow">Free tool</p>
+          <h2>Freelance rate calculator</h2>
+          <p>
+            Set your target income, overhead, taxes, and realistic billable time. We calculate a sustainable rate and
+            generate a quote summary you can send to a client today.
+          </p>
+        </div>
+
+        <div class="calculator-layout">
+          <form class="calculator-panel" id="calculator-form">
+            <div class="field-grid">
+              <label>
+                Target annual income
+                <input id="income" name="income" type="number" min="0" step="1000" value="90000">
+              </label>
+              <label>
+                Annual business overhead
+                <input id="overhead" name="overhead" type="number" min="0" step="500" value="12000">
+              </label>
+              <label>
+                Tax buffer (%)
+                <input id="taxRate" name="taxRate" type="number" min="0" max="60" step="1" value="25">
+              </label>
+              <label>
+                Billable hours per week
+                <input id="hoursPerWeek" name="hoursPerWeek" type="number" min="1" max="60" step="1" value="22">
+              </label>
+              <label>
+                Working weeks per year
+                <input id="weeksPerYear" name="weeksPerYear" type="number" min="1" max="52" step="1" value="46">
+              </label>
+              <label>
+                Desired profit cushion (%)
+                <input id="profitMargin" name="profitMargin" type="number" min="0" max="80" step="1" value="15">
+              </label>
+            </div>
+
+            <div class="project-box">
+              <div>
+                <h3>Project quote builder</h3>
+                <p>Add a project size to convert your rate into a fixed-fee quote.</p>
+              </div>
+              <div class="field-grid compact">
+                <label>
+                  Estimated project hours
+                  <input id="projectHours" name="projectHours" type="number" min="1" max="500" step="1" value="18">
+                </label>
+                <label>
+                  Rush multiplier
+                  <select id="rushMultiplier" name="rushMultiplier">
+                    <option value="1">Standard timeline</option>
+                    <option value="1.15">Mild rush (+15%)</option>
+                    <option value="1.3">Fast turnaround (+30%)</option>
+                    <option value="1.5">Urgent delivery (+50%)</option>
+                  </select>
+                </label>
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button class="button button-primary" type="submit">Calculate my rate</button>
+              <button class="button button-secondary" id="copy-summary" type="button">Copy quote summary</button>
+            </div>
+          </form>
+
+          <aside class="results-panel">
+            <div class="result-card accent">
+              <span class="result-label">Recommended hourly rate</span>
+              <strong id="hourlyRate">$0</strong>
+              <p id="rateContext">Based on your income target, expenses, taxes, and billable availability.</p>
+            </div>
+            <div class="results-grid">
+              <article class="result-card">
+                <span class="result-label">Monthly revenue target</span>
+                <strong id="monthlyTarget">$0</strong>
+              </article>
+              <article class="result-card">
+                <span class="result-label">Estimated fixed quote</span>
+                <strong id="projectQuote">$0</strong>
+              </article>
+              <article class="result-card">
+                <span class="result-label">Billable hours / year</span>
+                <strong id="annualHours">0</strong>
+              </article>
+              <article class="result-card">
+                <span class="result-label">Tax reserve</span>
+                <strong id="taxReserve">$0</strong>
+              </article>
+            </div>
+            <div class="summary-card">
+              <div class="summary-head">
+                <h3>Client-ready summary</h3>
+                <span id="copy-status" aria-live="polite"></span>
+              </div>
+              <textarea id="quoteSummary" readonly></textarea>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="how-section" id="how-it-works">
+        <div class="section-heading">
+          <p class="eyebrow">Why this can make money</p>
+          <h2>A simple but durable monetization funnel</h2>
+        </div>
+        <div class="steps">
+          <article>
+            <span>01</span>
+            <h3>Capture high-intent traffic</h3>
+            <p>Searches like "freelance rate calculator" and "how much should I charge clients" map directly to this tool.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Deliver immediate value</h3>
+            <p>Users get a rate, a quote, and a usable pricing summary before seeing any monetization ask.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Monetize the next step</h3>
+            <p>After pricing their service, the natural next purchase is invoicing, bookkeeping, proposals, or business banking.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="stack-section" id="stack">
+        <div class="section-heading">
+          <p class="eyebrow">Recommended stack</p>
+          <h2>Tools users are already primed to buy</h2>
+          <p>
+            These cards are positioned like editorial recommendations. Swap the placeholder URLs with your affiliate
+            links once you join each program.
+          </p>
+        </div>
+        <div class="offer-grid">
+          <article class="offer-card">
+            <p class="offer-tag">Affiliate slot</p>
+            <h3>Invoicing and bookkeeping</h3>
+            <p>Ideal after someone calculates a rate and wants to send cleaner invoices or track expenses.</p>
+            <a class="button button-primary" href="https://www.freshbooks.com/affiliate-program/" target="_blank" rel="noreferrer noopener">View partner option</a>
+          </article>
+          <article class="offer-card">
+            <p class="offer-tag">Affiliate slot</p>
+            <h3>Accounting software</h3>
+            <p>Great fit for freelancers graduating from spreadsheets into recurring clients and year-round tax prep.</p>
+            <a class="button button-primary" href="https://peakadvisers.com/affiliates/" target="_blank" rel="noreferrer noopener">View partner option</a>
+          </article>
+          <article class="offer-card">
+            <p class="offer-tag">Lead magnet</p>
+            <h3>Free pricing sheet</h3>
+            <p>Collect emails with a downloadable pricing planner, then nurture subscribers with articles and offers.</p>
+            <a class="button button-primary" href="#lead">Get the lead form</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="lead-section" id="lead">
+        <div class="lead-copy">
+          <p class="eyebrow">Email capture</p>
+          <h2>Offer a pricing sheet people actually want.</h2>
+          <p>
+            This form is frontend-only for now, but the page is laid out for easy connection to ConvertKit, Beehiiv,
+            Buttondown, MailerLite, or a simple form backend once you deploy.
+          </p>
+        </div>
+        <form class="lead-form" id="lead-form">
+          <label>
+            First name
+            <input id="leadName" name="leadName" type="text" placeholder="Alex">
+          </label>
+          <label>
+            Email address
+            <input id="leadEmail" name="leadEmail" type="email" placeholder="alex@example.com" required>
+          </label>
+          <button class="button button-primary" type="submit">Unlock the pricing sheet</button>
+          <p class="form-note" id="lead-message" aria-live="polite">
+            The current demo stores the signup locally and shows the delivery copy you can wire into an email tool later.
+          </p>
+        </form>
+      </section>
+
+      <section class="content-section">
+        <div class="section-heading">
+          <p class="eyebrow">SEO expansion</p>
+          <h2>Content clusters to publish next</h2>
+        </div>
+        <div class="content-grid">
+          <article>
+            <h3><a href="freelance-pricing-guide.html">How to price freelance work in 2026</a></h3>
+            <p>Commercial-intent article with calculator embeds and tool recommendations.</p>
+          </article>
+          <article>
+            <h3><a href="#calculator">Hourly vs project pricing for consultants</a></h3>
+            <p>Comparison page that naturally feeds both the calculator and affiliate recommendations.</p>
+          </article>
+          <article>
+            <h3><a href="#stack">Best invoicing software for freelancers</a></h3>
+            <p>Buyer-intent page built to convert affiliate clicks after the free tool earns trust.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="faq-section" id="faq">
+        <div class="section-heading">
+          <p class="eyebrow">FAQ</p>
+          <h2>Questions future visitors will ask</h2>
+        </div>
+        <div class="faq-list">
+          <details open>
+            <summary>Why target freelancers instead of a broader audience?</summary>
+            <p>They have a concrete pricing problem, clear purchase intent, and obvious adjacent tools to monetize.</p>
+          </details>
+          <details>
+            <summary>How does this site make money first?</summary>
+            <p>Fastest path: affiliate offers for invoicing and accounting software. Next layer: newsletter sponsorships and digital templates.</p>
+          </details>
+          <details>
+            <summary>What should be added after launch?</summary>
+            <p>Programmatic SEO pages for niches like designers, developers, consultants, photographers, and copywriters.</p>
+          </details>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>SoloRate is a launch-ready static website designed to monetize freelancer search intent.</p>
+      <a href="#top">Back to top</a>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
