@@ -1003,3 +1003,48 @@ label small {
     display: grid;
   }
 }
+.micro-proof {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.micro-proof span {
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(255, 250, 242, 0.7);
+  border: 1px solid rgba(31, 27, 23, 0.08);
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.send-checklist {
+  margin-top: 20px;
+  padding: 22px;
+  border-radius: 24px;
+  background: rgba(255, 252, 247, 0.72);
+  border: 1px solid rgba(31, 27, 23, 0.08);
+  box-shadow: var(--shadow);
+}
+
+.send-checklist h3 {
+  margin: 0 0 10px;
+}
+
+.checklist-list {
+  margin: 0;
+  padding-left: 20px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.feedback-section {
+  padding-top: 70px;
+}
+
+@media (max-width: 640px) {
+  .micro-proof {
+    display: grid;
+  }
+}

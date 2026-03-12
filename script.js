@@ -794,6 +794,11 @@ copyButton.addEventListener("click", async () => {
   try {
     await navigator.clipboard.writeText(currentQuoteText);
     copyStatus.textContent = "Copied.";
+    setTimeout(() => {
+      if (copyStatus.textContent === "Copied.") {
+        copyStatus.textContent = "";
+      }
+    }, 2000);
   } catch (error) {
     copyStatus.textContent = "Copy failed. Select the text manually.";
   }
@@ -854,4 +859,6 @@ leadForm.addEventListener("submit", (event) => {
 });
 
 applyPreset("beginner");
+
+
 

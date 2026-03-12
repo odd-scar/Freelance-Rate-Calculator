@@ -21,6 +21,7 @@
     href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Source+Serif+4:wght@600;700&display=swap"
     rel="stylesheet"
   >
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="stylesheet" href="styles.css">
   <script type="application/ld+json">
     {
@@ -66,6 +67,11 @@
           <div class="hero-actions">
             <a class="button button-primary" href="#calculator">Build a quote</a>
             <a class="button button-secondary" href="#samples">See sample use cases</a>
+          </div>
+          <div class="micro-proof" aria-label="Quick trust signals">
+            <span>No signup required</span>
+            <span>Works in your browser</span>
+            <span>Printable PDF export</span>
           </div>
           <ul class="hero-points" aria-label="Highlights">
             <li>Beginner-friendly presets plus advanced pricing controls for experienced freelancers</li>
@@ -421,6 +427,15 @@
               </article>
               <textarea id="quoteSummary" readonly class="visually-hidden"></textarea>
             </div>
+            <div class="send-checklist">
+              <p class="eyebrow">Before you send</p>
+              <h3>Quick quote checklist</h3>
+              <ul class="checklist-list">
+                <li>Make sure the client name and project title are specific.</li>
+                <li>Review deliverables so scope is obvious.</li>
+                <li>Confirm deposit, payment terms, and expiration date.</li>
+              </ul>
+            </div>
             <div class="recommend-card">
               <p class="eyebrow">Monetization-ready next step</p>
               <h3 id="recommendTitle">Best next tools for this workflow</h3>
@@ -598,6 +613,28 @@
           </details>
         </div>
       </section>
+
+      <section class="content-section feedback-section">
+        <div class="section-heading">
+          <p class="eyebrow">Friend-demo prompts</p>
+          <h2>Questions to ask your freelancer friends</h2>
+          <p>Use these prompts while showing the product so you get sharper feedback before promoting it publicly.</p>
+        </div>
+        <div class="content-grid">
+          <article>
+            <h3>Would you send this quote?</h3>
+            <p>Ask whether the preview and PDF feel professional enough to send without extra cleanup.</p>
+          </article>
+          <article>
+            <h3>What is still missing?</h3>
+            <p>Find out whether they need more fields like licensing, turnaround notes, or package options.</p>
+          </article>
+          <article>
+            <h3>What would you pay for?</h3>
+            <p>Listen for premium ideas like saved quotes, branded templates, signature collection, or reusable clients.</p>
+          </article>
+        </div>
+      </section>
     </main>
 
     <footer class="site-footer">
@@ -609,4 +646,8 @@
   <script src="script.js"></script>
 </body>
 </html>
+
+
+
+
 
